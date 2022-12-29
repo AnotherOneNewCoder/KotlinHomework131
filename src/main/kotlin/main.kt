@@ -29,8 +29,8 @@ fun main() {
     fun secToMin(seconds: Int) : String {
         val min = seconds / 60
         return when {
-            min.toString().endsWith("1") -> "$min минуту назад"
             min.toString().endsWith("11") -> "$min минут назад"
+            min.toString().endsWith("1") -> "$min минуту назад"
             min.toString().endsWith("12") -> "$min минут назад"
             min.toString().endsWith("13") -> "$min минут назад"
             min.toString().endsWith("14") -> "$min минут назад"
@@ -45,6 +45,10 @@ fun main() {
     fun secToHours(seconds: Int) : String {
         val hour = seconds /3600
         return when {
+            hour.toString().endsWith("11") -> "$hour часов назад"
+            hour.toString().endsWith("12") -> "$hour часов назад"
+            hour.toString().endsWith("13") -> "$hour часов назад"
+            hour.toString().endsWith("14") -> "$hour часов назад"
             hour.toString().endsWith("1") -> "$hour час назад"
             hour.toString().endsWith("2") -> "$hour часа назад"
             hour.toString().endsWith("3") -> "$hour часа назад"
