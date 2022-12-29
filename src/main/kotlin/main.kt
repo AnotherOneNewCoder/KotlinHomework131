@@ -1,3 +1,5 @@
+import java.util.Scanner
+
 //Используя when, напишите функцию agoToText (скорее всего, вам понадобится не одна функция), которая учитывает, сколько времени прошло с последнего визита пользователя, и выдаёт текст (String).
 //
 //Нас будет интересовать вся фраза, например, был(а) только что или был(а) в сети 3 часа назад.
@@ -39,12 +41,29 @@ fun main() {
             else -> "$min минут назад"
         }
     }
+
+    fun secToHours(seconds: Int) : String {
+        val hour = seconds /3600
+        return when {
+            hour.toString().endsWith("1") -> "$hour час назад"
+            hour.toString().endsWith("2") -> "$hour часа назад"
+            hour.toString().endsWith("3") -> "$hour часа назад"
+            hour.toString().endsWith("4") -> "$hour часа назад"
+            else -> "$hour часов назад"
+        }
+    }
+
     fun agoToText(seconds: Int): String = when {
         (seconds in 1..60) -> "только что"
         (seconds in 61..60*60) -> secToMin(seconds)
-        (seconds in 60 * 60 + 1..24 * 60 * 60)
+        (seconds in 60 * 60 + 1..24 * 60 * 60) -> secToHours(seconds)
 
         else -> "давно"
     }
-
+    val scan = Scanner(System.`in`)
+    while (true) {
+        println("Введите количество секунд:")
+        val seonds = scan.nextInt()
+        println("Был(а) в сети " + agoToText(seonds))
+    }
 }
