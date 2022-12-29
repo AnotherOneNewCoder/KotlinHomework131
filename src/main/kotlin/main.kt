@@ -26,6 +26,8 @@ import java.util.Scanner
 
 
 fun main() {
+
+    // перевод в минуты
     fun secToMin(seconds: Int) : String {
         val min = seconds / 60
         return when {
@@ -40,7 +42,7 @@ fun main() {
             else -> "$min минут назад"
         }
     }
-
+    // перевод в часы
     fun secToHours(seconds: Int) : String {
         val hour = seconds /3600
         return when {
@@ -67,7 +69,7 @@ fun main() {
     val scan = Scanner(System.`in`)
     while (true) {
         println("Введите количество секунд:")
-        val seonds = scan.nextInt()
-        println("Был(а) в сети " + agoToText(seonds))
+        val seсonds = scan.nextInt()
+        println("Был(а) в сети " + agoToText(seсonds))
     }
 }
