@@ -37,7 +37,6 @@ fun main() {
             min.toString().endsWith("2") -> "$min минуты назад"
             min.toString().endsWith("3") -> "$min минуты назад"
             min.toString().endsWith("4") -> "$min минуты назад"
-
             else -> "$min минут назад"
         }
     }
@@ -61,7 +60,8 @@ fun main() {
         (seconds in 1..60) -> "только что"
         (seconds in 61..60*60) -> secToMin(seconds)
         (seconds in 60 * 60 + 1..24 * 60 * 60) -> secToHours(seconds)
-
+        (seconds in 24 * 60 * 60 + 1..2 * 24 * 60 * 60) -> "вчера"
+        (seconds in 2 * 24 * 60 * 60 + 1..3 * 24 * 60 * 60) -> "позавчера"
         else -> "давно"
     }
     val scan = Scanner(System.`in`)
